@@ -1,0 +1,22 @@
+/*
+00: CSS variables
+01: Color
+02: Typography
+*/
+/*00: CSS Variables*/
+:root{
+    -page-color: hsla(145, 35%, 89%, 0.9);
+    }
+    /* 01: color*/
+    html {
+    background-color: hsla(145, 35%, 89%, 0.9);
+    padding: 5%;
+    }
+    body{
+    background-color: hsla(190, 51%, 65%, 0.5);
+    color: hsla(180, 100%, 100%, 0.1);
+    padding: 5%;
+    
+    
+    }
+    
