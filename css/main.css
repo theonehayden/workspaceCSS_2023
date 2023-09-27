@@ -1,11 +1,78 @@
 /*
-00: CSS variables
-01: Color
-02: Typography
-*/
-/*00: CSS Variables*/
+00: CSS variables*/
 :root{
-    -page-color: hsla(145, 35%, 89%, 0.9);
+    --page-color: hsla(30, 32%, 88%, .9);
+    --body-color: hsla(0, 0%, 0%, 0.5);
+    --sidebar-color: hsl(186, 32%, 44%);
+    --footbar-color: hsla(12, 32%, 32%, .2);
+}
+/*01: Color*/
+
+body{
+    background-color:var(--body-color);
+}
+aside.sidebar{
+    background-color:var(--sidebar-color);
+}
+#zen-intro{
+    background-color:var(--page-color);
+}
+#zen-supporting{
+    background-color:var(--page-color);
+}
+/*02: Typography*/
+
+/* 03:  Layout */
+
+/* For Tests*/
+div#zen-supporting{
+    
+    
+    position:relative;
+    top: 100px;
+    width: 40%;
+
+}
+aside.sidebar{
+position: absolute;
+top: 0;
+right: 0;
+width: 20%;
+}
+div.extra2{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height: var(--footbar-height);
+    background-color: var(--footbar-color);
+
+}
+
+
+/*00: CSS Variables*/
+
+/* 
+parent {
+    width:50%;
+    height: 400px;
+    font-size:20pt;
+    background: #2B343C
+    
+}
+child{
+    width:50vw;
+    height:100px;
+    font-size: 50%;
+    background: #F5BE70;
+
+
+
+*/
+
+
+:root{
+    --page-color: hsla(145, 35%, 89%, 0.9);
     }
     /* 01: color*/
     html {
