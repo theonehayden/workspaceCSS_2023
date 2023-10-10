@@ -1,15 +1,29 @@
-/*
-00: CSS variables*/
-:root{
-    --page-color: hsla(30, 32%, 88%, .9);
-    --body-color: hsla(0, 0%, 0%, 0.5);
-    --sidebar-color: hsl(186, 32%, 44%);
-    --footbar-color: hsla(12, 32%, 32%, .2);
-}
-/*01: Color*/
+/* Style file created by yilian zhang 
+=============================
+00: CSS variables 
+01: Color 
+02: Typography
 
+*/
+
+/* 00: CSS variables */
+:root{
+    --page-color:hsla(30, 32%, 88%, 0.9);
+    --body-color: hsla(359, 39%, 35%, 0.9);
+    --sidebar-color: rgb(191, 164, 99);
+    --footbar-color: hsla(27, 43%, 65%, 1);
+    --tab-color: hsla(27, 43%, 55%, 1);
+    --footbar-height: 15vh;
+    --page-position: 85%;
+    --page-width: 30%;
+    --tab-gap:2vw;
+    --tab-width: 10vw;
+    --tab-height: 5vh;
+}
+/* 01: Color */
 body{
     background-color:var(--body-color);
+    padding: 5px;
 }
 aside.sidebar{
     background-color:var(--sidebar-color);
@@ -20,24 +34,93 @@ aside.sidebar{
 #zen-supporting{
     background-color:var(--page-color);
 }
-/*02: Typography*/
 
-/* 03:  Layout */
+/* 02: Typography */
+@font-face {
+    font-family: 'myfont';
+    src: url(../fonts/chunkfive.woff);
+}
 
-/* For Tests*/
-div#zen-supporting{
-    
-    
-    position:relative;
-    top: 100px;
-    width: 40%;
+header h1{
+    font-family: 'myfont', sans-serif;
+    font-weight: 400;
+    font-size: 1.25em;
+    letter-spacing: 1px;
+    line-height: 1em;
+}
+h3{
+    font-family: 'Ranchers',cursive;
+    font-size: 1em;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+/* 03: Layout */
+/* For test */
+div.explanation, div.requirements,div.benefits,div.participation{
+    position: fixed;
+    top: var(--page-position);
+    width: var(--page-width);
+    height: 80%;
+    padding-left: 10px;
+    margin:10px;
+    border: 1px solid black;
+    background-image: url(../img/newspaper3.jpg);
+    transition: all 1s ease-in-out;  /*this could also be easy in out */
 
 }
+
+
+div.explanation{
+    left: 0%;
+}
+div.requirements{
+    left: 12vw;
+}
+div.benefits{
+    left: 24vw;
+}
+div.participation{
+    left: 36vw;
+}
+div.explanation h3, div.requirements h3,div.benefits h3,div.participation h3{
+    margin-top: -10%;
+    width:var(--tab-width);
+    height: var(--tab-height);
+    background-color: var(--tab-color);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 20px 10px;
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s ease-in-out;  /*this could also be easy in out */
+
+}
+
+div.explanation h3:hover{
+    background-color: var(--footbar-color);
+}
+div.requirements h3:hover{
+    background-color: var(--footbar-color);
+}
+div.benefits h3:hover{
+    background-color: var(--footbar-color);
+}
+div.participation h3:hover{
+    background-color: var(--footbar-color);
+}
+
 aside.sidebar{
-position: absolute;
-top: 0;
-right: 0;
-width: 20%;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    width: 20%;
+    height: 60%;
 }
 div.extra2{
     position: fixed;
@@ -46,44 +129,132 @@ div.extra2{
     width:100%;
     height: var(--footbar-height);
     background-color: var(--footbar-color);
+}
 
+/* footer -- try it outside of the clas */
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 40% ;
+    width: 20%;
+    text-align: center;
+    background-color: var(--footbar-color);
+    border: 1px solid var(--border-color);
+    z-index: 3;
+}
+/* introductio -in the middle */
+section.intro{
+    position: fixed;
+    bottom: 5%;
+    left: 30%;
+    width: 30%;
+    height: 80%;
+    padding: 2%;
+    background-image: url(../img/newspaper3.jpg);
+    transform: rotate(-20deg) translate(-100px,0);
+}
+
+div.extra1{
+    position: fixed;
+    bottom: 5%;
+    left: 35%;
+    width: 30%;
+    height: 80%;
+    padding: 2%;
+    background-image: url(../img/newspaper1.jpg);
+    /* rotate the div yourself */
+    z-index: -1;
 }
 
 
-/*00: CSS Variables*/
-
-/* 
-parent {
-    width:50%;
-    height: 400px;
-    font-size:20pt;
-    background: #2B343C
-    
+/* 04: other decoration */
+div.explanation:active{
+    top:15vh;
 }
-child{
-    width:50vw;
-    height:100px;
-    font-size: 50%;
-    background: #F5BE70;
+div.requirements:active{
+    top:15vh;
+}
+div.benefits:active{
+    top:15vh;
+}
+div.participation:active{
+    top:15vh;
+}
+a:hover{
+    font-size: 1.2em;
+    text-indent: -100px;
+}
 
+p::first-letter{
+    font-size:2em;
+    font-style: italic;
+}
+/*
 
+p:nth-child(2n){
+    background-color: hsla(359, 39%, 35%, 0.9);
+}
+p:nth-child(2n+1){
+    background-color: rgb(184, 40, 148);
+}
+*/
 
+/* 05: more practice on transitions*/
+section.intro h3 ~p{
+    opacity: 0;
+    transition: all 2s ease-in-out;
+}
+
+section.intro h3:hover ~p{
+    opacity: 1;
+    transition: scale(.2);
+}
+footer{
+    animation: 10s  infinite footMove;
+}
+
+/*06 animation */
+@keyframes footMove{
+    from{ transform: translate(-500px, 0px);}
+    30%{ transform: translate(-300px, 0px);}
+    50%{ transform: translate(0px, 0px);}
+    70%{ transform: translate(300px, 0px);}
+    70%{ transform: translate(500px, 0px);}
+
+}
+
+h2{
+    background-image: linear-gradient(yellow, green, white);
+    animation: 4s infinite running changecolor;
+}
+
+@keyframes changecolor{
+    from{background-image: linear-gradient(green, white, yellow);}
+    to{background-image: linear-gradient(yellow, green, white);}
+}
+
+/* Fancy Features */
+div.extra1{
+    border-image: linear-gradient(blue, red)10 /15px round;
+}
+aside.sidebar{
+    font-size: 0.8em;
+    clip-path: polygon(0 0, 0 70%, 50% 100%, 100% 70%, 100% 0);
+}
+div#design-archives{
+    display:none;
+}
+aside.sidebar h3{
+    display:none;
+}
+aside.sidebar ul li{
+    list-style: none;
+}
+/*
+body{
+    clip-path:circle( 70% at 50vw 50vh);
+}
 */
 
 
-:root{
-    --page-color: hsla(145, 35%, 89%, 0.9);
-    }
-    /* 01: color*/
-    html {
-    background-color: hsla(145, 35%, 89%, 0.9);
-    padding: 5%;
-    }
-    body{
-    background-color: hsla(190, 51%, 65%, 0.5);
-    color: hsla(180, 100%, 100%, 0.1);
-    padding: 5%;
-    
-    
-    }
-    
+
